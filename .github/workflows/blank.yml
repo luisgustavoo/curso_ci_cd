@@ -40,7 +40,8 @@ jobs:
         run: dart test
 
       - name: Connect AWS
-        run: ssh -i "${{ secrets.PEM_KEY }}" ${{ secrets.UBUNTU }}
+        run: echo ${{ secrets.PEM_KEY }} | > key.pem
+        run: ssh -i "key.pem" ${{ secrets.UBUNTU }}
 
   # flutter:
   #   - uses: subosito/flutter-action@v2
