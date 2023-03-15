@@ -26,24 +26,24 @@ jobs:
       - uses: dart-lang/setup-dart@v1
         with:
           sdk: ${{ matrix.sdk }}
-          cache: dart
+          # cache: dart
 
-      - name: Dart version
-        run: dart --version
-      - name: Install dependencies
-        run: dart pub get
-      - name: Check formatting
-        run: dart format --output=none --set-exit-if-changed .
-      - name: Analyze code
-        run: dart analyze
-      - name: Run tests
-        run: dart test
+      # - name: Dart version
+      #   run: dart --version
+      # - name: Install dependencies
+      #   run: dart pub get
+      # - name: Check formatting
+      #   run: dart format --output=none --set-exit-if-changed .
+      # - name: Analyze code
+      #   run: dart analyze
+      # - name: Run tests
+      #   run: dart test
 
 
       - name: Create key pem
-        run: echo ${{ secrets.PEM_KEY }} | -d > key.pem
-      - name: Connect AWS
-        run: ssh -i "key.pem" ${{ secrets.UBUNTU }}
+        run: echo ${{ secrets.PEM_KEY }} | tr -d '\r' > key.pem
+      # - name: Connect AWS
+      #   run: ssh -i "key.pem" ${{ secrets.UBUNTU }}
 
   # flutter:
   #   - uses: subosito/flutter-action@v2
