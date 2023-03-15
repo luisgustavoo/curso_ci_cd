@@ -29,7 +29,7 @@ jobs:
           cache: dart
 
       - name: Dart version
-        run: dart--version
+        run: dart --version
       - name: Install dependencies
         run: dart pub get
       - name: Check formatting
