@@ -27,6 +27,9 @@ jobs:
         with:
           sdk: ${{ matrix.sdk }}
           cache: dart
+
+      - name: Dart version
+        run: dart--version
       - name: Install dependencies
         run: dart pub get
       - name: Check formatting
