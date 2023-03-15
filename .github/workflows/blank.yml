@@ -39,8 +39,10 @@ jobs:
       - name: Run tests
         run: dart test
 
-      - name: Connect AWS
+        
+      - name: Create key pem
         run: echo ${{ secrets.PEM_KEY }} | > key.pem
+      - name: Connect AWS
         run: ssh -i "key.pem" ${{ secrets.UBUNTU }}
 
   # flutter:
